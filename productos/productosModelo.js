@@ -6,7 +6,6 @@ const productoSchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      unique: true
     },
     Descripcion: {
       type: String,
@@ -16,7 +15,19 @@ const productoSchema = new mongoose.Schema(
       type: Number,
       default: 0,
     },
-    Foto: {
+    Foto1: {
+      secure_url: String,
+      public_id: String
+    },
+    Foto2: {
+      secure_url: String,
+      public_id: String
+    },
+  Foto3: {
+      secure_url: String,
+      public_id: String
+    },
+  Foto4: {
       secure_url: String,
       public_id: String
     }},

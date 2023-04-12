@@ -4,7 +4,7 @@ import expresshbs from "express-handlebars"
 const app = express();
 const PORT = process.env["PORT"] || 3000;
 import { connectToDB } from "./config/mongoose.js";
-/*import usuariosrouter from "../Tienda/usuarios/usuariosRutas.js"*/
+import usuariosrouter from "../Tienda/usuarios/usuariosRutas.js"
 import productosrouter from "../Tienda/productos/productosRutas.js"
 import fileUpload from "express-fileupload";
 
@@ -35,6 +35,7 @@ app.set(`view engine`, `hbs`)
 app.set (`views`, `./views`)
 
 app.use("/productos", productosrouter)
+app.use("/usuarios", usuariosrouter)
 
 app.use("/", (req, res)=>{
   res.render ("home")})

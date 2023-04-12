@@ -6,7 +6,7 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form action="/productos">
+        <form action="/usuarios/login" method="post">
           
 
           <div class="divider d-flex align-items-center my-3">
@@ -16,14 +16,14 @@
           <!-- Email input -->
           <div class="form-outline mb-2">
             <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Ingrese su email " autofocus/>
+              placeholder="Ingrese su email " autofocus name="Email"/>
             <label class="form-label" for="form3Example3">Email de registro</label>
           </div>
 
           <!-- Password input -->
           <div class="form-outline mb-3">
             <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Ingrese Contraseña" />
+              placeholder="Ingrese Contraseña" name="Contraseña"/>
             <label class="form-label" for="form3Example4">Contraseña</label>
           </div>
 
@@ -65,3 +65,16 @@
 
   
 </section>
+{{#if datosIncorrectos}}
+<script>
+
+  Swal.fire({
+  title: 'Usuario o contraseña incorrectos',
+  text: 'Intente nuevamente',
+  icon: 'error',
+  confirmButtonText: 'Ok'
+})
+
+  
+</script>
+{{/if}}
