@@ -12,7 +12,7 @@ const productoSchema = new mongoose.Schema(
       trim: true,
     },
     Precio: {
-      type: Number,
+      type: String,
       default: 0,
     },
     Foto1: {

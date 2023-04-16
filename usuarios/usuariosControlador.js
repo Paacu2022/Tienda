@@ -1,4 +1,5 @@
 import Usuarios from "../usuarios/usuariosModelo.js"
+import Productos from "../productos/productosModelo.js"
 import {encriptar, desencriptar} from "../utils/contra.js"
 import Swal from 'sweetalert2'
 
@@ -38,9 +39,7 @@ export const login = async (req, res)=>{
     }
 }}
 
-export const tabla=(req, res)=>{
-  res.render ("tabla")
-}
+
 
 
 

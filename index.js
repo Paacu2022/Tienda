@@ -8,6 +8,8 @@ import usuariosrouter from "../Tienda/usuarios/usuariosRutas.js"
 import productosrouter from "../Tienda/productos/productosRutas.js"
 import fileUpload from "express-fileupload";
 
+
+
   connectToDB();
   app.listen(PORT, (err) => {
     !err
@@ -24,6 +26,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use (cors());
 
+app.locals.id
+
 app.use( fileUpload({
  useTempFiles: true,
 tempFileDir: "./uploads",
@@ -33,6 +37,7 @@ tempFileDir: "./uploads",
 app.engine (`.hbs`, expresshbs.engine ({ extname: `hbs` }))
 app.set(`view engine`, `hbs`)
 app.set (`views`, `./views`)
+
 
 app.use("/productos", productosrouter)
 app.use("/usuarios", usuariosrouter)
