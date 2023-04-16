@@ -1,3 +1,4 @@
+{{>navbar}}
 <div class="bg-light">
 <div class="container">
 <div class="row justify justify-content-center">
@@ -51,3 +52,30 @@
 </div>
 </div>
 </div> 
+{{#if ok}}
+<script>
+
+  Swal.fire({
+  title: 'Producto cargado correctamente',
+  text: 'Producto ya en linea',
+  icon: 'success',
+  confirmButtonText: 'Ok'
+})
+
+  
+</script>
+{{/if}}
+
+{{#if nc}}
+<script>
+
+  Swal.fire({
+  title: 'Producto no se cargo',
+  text: 'Por algun error de servidor el producto no se cargo',
+  icon: 'error',
+  confirmButtonText: 'Ok'
+})
+
+  
+</script>
+{{/if}}

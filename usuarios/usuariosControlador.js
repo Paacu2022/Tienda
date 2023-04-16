@@ -34,10 +34,13 @@ export const login = async (req, res)=>{
     const datosIncorrectos=true
     res.render("home",{datosIncorrectos})
        }else{
-    res.render("productos")
+    res.render("formularioCargaProductos")
     }
 }}
-                          
+
+export const tabla=(req, res)=>{
+  res.render ("tabla")
+}
 
 
 

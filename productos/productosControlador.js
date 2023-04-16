@@ -3,9 +3,20 @@ import {uploadImage, deleteImage} from '../utils/cloudinary.js'
 import fs from 'fs-extra'
 
 
-export const productos=(req, res)=>{
-  res.render ("productos")
+export const productos= async (req, res)=>{
+  try {
+    const products = await Productos.find();
+    return res.json(products);
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
 }
+
+export const formularioCargaProductos=(req, res)=>{
+  res.render ("formularioCargaProductos")
+}
+
+
 
 export const cargar= async (req, res)=>{
   const {Producto, Descripcion, Precio}= req.body
@@ -53,12 +64,14 @@ export const cargar= async (req, res)=>{
     }
     
     const savedProduct = await newProducto.save();
-    return res.json(savedProduct);
+    const ok=true
+    res.render("formularioCargaProductos", {ok})
   } catch (error) {
     if (req.files?.image) {
       await fs.unlink(req.files.Foto.tempFilePath)
     }
-    return res.status(500).json({ message: error.message });
+    const nc=true
+    res.render("formularioCargaProductos", {nc})
   }
 }
 
